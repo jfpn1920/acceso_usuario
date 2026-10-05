@@ -1,0 +1,132 @@
+/* ===== VARIABLES DE COLOR (se usan en todo el archivo) ===== */
+:root {
+    --fondo: #efedf5;          /* fondo de la página */
+    --tarjeta: #ffffff;        /* fondo de la tarjeta */
+    --texto: #25222f;          /* color principal del texto */
+    --texto-suave: #6a657a;    /* textos secundarios */
+    --borde: #d8d4e3;          /* color de los bordes */
+    --acento: #4a3f8f;         /* morado: botones y pestaña activa */
+    --error: #b3261e;          /* rojo para errores */
+    --exito: #2e7d4f;          /* verde para mensajes de éxito */
+}
+/* ===== REINICIO BÁSICO ===== */
+* {
+    box-sizing: border-box;    /* el padding no agranda los elementos */
+    margin: 0;
+    padding: 0;
+}
+/* Hace que el atributo "hidden" siempre oculte el elemento */
+[hidden] {
+    display: none !important;
+}
+/* ===== ESTILO GENERAL DE LA PÁGINA ===== */
+body {
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;             /* centra la tarjeta en la pantalla */
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+}
+/* Contenedor con ancho máximo */
+.app {
+    width: 100%;
+    max-width: 400px;
+}
+/* ===== TARJETA ===== */
+.tarjeta {
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 28px 24px;
+}
+.tarjeta h1 {
+    font-size: 1.6rem;
+    color: var(--acento);
+    margin-bottom: 16px;
+}
+/* ===== PESTAÑAS ===== */
+.pestanas {
+    display: flex;
+    border-bottom: 2px solid var(--borde);
+    margin-bottom: 20px;
+}
+.pestana {
+    flex: 1;                   /* cada pestaña ocupa la mitad */
+    padding: 10px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;       /* se superpone con la línea gris */
+    color: var(--texto-suave);
+    font-size: 1rem;
+    cursor: pointer;
+}
+/* Pestaña seleccionada (JavaScript le agrega la clase "activa") */
+.pestana.activa {
+    color: var(--acento);
+    border-bottom-color: var(--acento);
+    font-weight: bold;
+}
+/* ===== FORMULARIO ===== */
+.campo {
+    display: flex;
+    flex-direction: column;    /* etiqueta arriba, input abajo */
+    gap: 4px;
+    margin-bottom: 14px;
+}
+label {
+    font-size: 0.9rem;
+    color: var(--texto-suave);
+}
+/* Estilo solo para los campos de texto y contraseña */
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    font-size: 1rem;
+    width: 100%;
+}
+input:focus {
+    outline: 2px solid var(--acento);
+}
+/* Casilla "Mostrar contraseña" */
+.opcion {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+/* Mensaje de error (o éxito si tiene la clase "exito") */
+.mensaje {
+    color: var(--error);
+    font-size: 0.9rem;
+    min-height: 1.3em;         /* evita que el diseño salte al aparecer */
+    margin: 10px 0;
+}
+.mensaje.exito {
+    color: var(--exito);
+}
+/* ===== BOTÓN PRINCIPAL ===== */
+.boton {
+    width: 100%;
+    padding: 12px;
+    background: var(--acento);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.boton:hover {
+    opacity: 0.9;
+}
+/* ===== VISTA DE BIENVENIDA ===== */
+.saludo {
+    margin-bottom: 20px;
+    color: var(--texto-suave);
+}

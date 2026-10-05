@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>acceso usuario</title>
+    <link rel="stylesheet" href="acceso_usuario.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="acceso_usuario.js" defer></script>
+</head>
+<body>
+    <!----------------------------------->
+    <!--|estructuracion_acceso_usuario|-->
+    <!----------------------------------->
+    <main class="app">
+        <!-- VISTA 1: formulario de acceso (se oculta cuando hay sesión iniciada) -->
+        <section id="vistaAcceso" class="tarjeta">
+            <h1>Acceso Usuario</h1>
+            <!-- Pestañas para cambiar entre iniciar sesión y crear cuenta -->
+            <div class="pestanas">
+                <button class="pestana" data-modo="login" type="button">Iniciar sesión</button>
+                <button class="pestana" data-modo="registro" type="button">Crear cuenta</button>
+            </div>
+            <!-- novalidate: la validación la hacemos nosotros con JavaScript -->
+            <form id="formulario" novalidate>
+                <!-- Campo: nombre de usuario -->
+                <div class="campo">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" id="usuario" placeholder="Ej: maria"
+                        maxlength="20" autocomplete="off">
+                </div>
+                <!-- Campo: contraseña (los caracteres se ocultan) -->
+                <div class="campo">
+                    <label for="clave">Contraseña</label>
+                    <input type="password" id="clave" placeholder="Mínimo 4 caracteres">
+                </div>
+                <!-- Campo: confirmar contraseña (solo aparece al crear cuenta) -->
+                <div class="campo" id="campoConfirmar" hidden>
+                    <label for="confirmar">Confirmar contraseña</label>
+                    <input type="password" id="confirmar" placeholder="Repite la contraseña">
+                </div>
+                <!-- Casilla para ver u ocultar la contraseña -->
+                <label class="opcion">
+                    <input type="checkbox" id="verClave"> Mostrar contraseña
+                </label>
+                <!-- Aquí JavaScript escribe los mensajes de error o éxito -->
+                <p id="mensaje" class="mensaje" role="alert"></p>
+                <!-- Botón que envía el formulario (su texto cambia según la pestaña) -->
+                <button type="submit" id="btnEnviar" class="boton">Iniciar sesión</button>
+            </form>
+        </section>
+        <!-- VISTA 2: bienvenida (solo se muestra cuando hay sesión iniciada) -->
+        <section id="vistaBienvenida" class="tarjeta" hidden>
+            <h1>¡Bienvenido!</h1>
+            <p class="saludo">
+                Has iniciado sesión como <strong id="nombreUsuario"></strong>.
+            </p>
+            <button id="btnSalir" class="boton" type="button">Cerrar sesión</button>
+        </section>
+    </main>
+</body>
+</html>
